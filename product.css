@@ -1,0 +1,300 @@
+/* CSS - HEADER & BODY*/
+.header {
+  background-color: #ffffff;
+  color: rgba(35, 72, 34, 1);
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-family: "Poppins";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+}
+
+/* CSS - LOGO DAN NAVBAR*/
+.logo img {
+  width: 150px;
+  height: auto;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.menu-toggle {
+  display: none; 
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: rgba(35, 72, 34, 1);
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.navbar {
+  align-items: center;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: rgba(30, 30, 30, 0.5);
+  text-align: center;
+  padding: 14px 16px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 25px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+  color: rgba(35, 72, 34, 1);
+  transform: scale(1.1);
+}
+
+.login-button button {
+  background-color: rgba(184, 206, 68, 1);
+  color: rgba(35, 72, 34, 1);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-right: 85px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.login-button button:hover {
+  background-color: rgba(35, 72, 34, 1);
+  color: rgba(184, 206, 68, 1);
+  transform: scale(1.05);
+}
+
+/* CSS - CONTENT */
+content {
+  margin: auto;
+  padding-top: 100px;
+  
+}
+content .tampilan {
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 900px;
+  margin: auto;
+}
+content .gambar {
+  width: 200px;
+}
+content .harga {
+  display: flex;
+}
+content .pesan {
+  margin-bottom: 20px;
+  background-color: #b8ce44;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 5px;
+  margin-left: 50px;
+  color: black;
+}
+content .list {
+  display: flex;
+}
+content .card {
+  padding-left: 100px;
+}
+content .kotak {
+  background-color: black;
+}
+
+.pesan:hover {
+  background-color: rgba(35, 72, 34, 1);
+  color: rgba(184, 206, 68, 1);
+  transform: scale(1.05);
+}
+
+/* CSS - FOOTER & NEWSLETTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins";
+}
+
+.footer-atas {
+  background-color: rgba(184, 206, 68, 1);
+  width: 100%;
+  height: auto; 
+  padding: 20px 0; 
+  text-align: center; 
+}
+
+.footer-atas h3 {
+  font-size: 20px; 
+  color: rgba(35, 72, 34, 1);
+}
+
+.footer-atas p {
+  font-size: 14px; 
+  color: rgba(35, 72, 34, 1);
+}
+
+.footer-bawah {
+  background-color: rgba(35, 72, 34, 1);
+  color: rgba(184, 206, 68, 1);
+  font-size: 12px; 
+  text-align: center;
+  width: 100%;
+  height: 30px; 
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 20px 0; 
+}
+
+.newsletter-input {
+  width: 100%; 
+  max-width: 400px; 
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.newsletter-button {
+  background-color: #ffffff;
+  color: rgba(35, 72, 34, 1);
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.newsletter-button:hover {
+  transform: scale(1.03);
+}
+
+@media screen and (max-width: 768px) { /* FOR RESPONSIVE */
+  .menu-toggle {
+      display: flex; 
+  }
+
+  .navbar {
+      display: none; 
+      flex-direction: column;
+      background-color: #ffffff;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.5);
+      z-index: 1000;
+  }
+
+  .navbar a {
+      font-size: 16px;
+      color: rgba(30, 30, 30, 0.5);
+      text-align: center;
+      padding: 14px 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+  }
+
+  .menu-toggle.active + .navbar {
+      display: flex;
+  }
+
+  .header {
+      padding: 10px 20px; 
+  }
+
+  .logo img {
+      margin-left: 5px; 
+  }
+
+  .login-button button {
+      margin-right: 40px; 
+  }
+  
+  content .tampilan {
+    width: 100%;
+    max-width: 100%; 
+    padding: 20px;
+    text-align: center; 
+  }
+  content .gambar {
+    width: 100%;
+  }
+  content .harga {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  content .pesan {
+    margin: 10px 0;
+  }
+  
+  content .list {
+    flex-direction: column;
+  }
+  content .card {
+    padding-left: 0;
+  }
+  content .list div {
+    text-align: center; 
+  }
+  content .gambar {
+    width: 60%; 
+    max-width: 200px; 
+  }
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-atas {
+    max-width: 100%; 
+  }
+  .newsletter-input {
+    width: 100%; 
+    max-width: 300px; 
+    padding: 8px;
+    font-size: 14px; 
+  }
+
+  .newsletter-button {
+    padding: 8px 16px; 
+    font-size: 14px; 
+  }
+}

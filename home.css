@@ -1,0 +1,560 @@
+/* CSS - HEADER & BODY*/
+.header {
+    background-color: #ffffff;
+    color: rgba(35, 72, 34, 1);
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    font-family: "Poppins";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+/* CSS - LOGO DAN NAVBAR*/
+.logo img {
+    width: 150px;
+    height: auto;
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: rgba(35, 72, 34, 1);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.navbar {
+    align-items: center;
+}
+
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: rgba(30, 30, 30, 0.5);
+    text-align: center;
+    padding: 14px 16px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 25px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+    color: rgba(35, 72, 34, 1);
+    transform: scale(1.1);
+}
+
+.login-button button {
+    background-color: rgba(184, 206, 68, 1);
+    color: rgba(35, 72, 34, 1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 85px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.login-button button:hover {
+    background-color: rgba(35, 72, 34, 1);
+    color: rgba(184, 206, 68, 1);
+    transform: scale(1.05);
+}
+
+/* CSS - KONTEN DI HOME */
+.content {
+    background-color: rgba(184, 206, 68, 1);
+    border-radius: 10px;
+    align-content: center;
+    margin-top: 100px;
+    margin-right: 75px;
+    margin-left: 75px;
+    width: auto;
+    height: auto;
+    padding-right: 70px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black
+}
+
+.content1 {
+    background: linear-gradient(to top, rgba(184, 206, 68, 1) 50%, white 50%);
+    align-content: center;
+    margin-top: 25px;
+    margin-right: 0;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+}
+
+.content2 {
+    align-content: center;
+    text-align: center;
+    margin-top: 50px;
+    width: auto;
+    height: auto;
+}
+
+.content2 h1 {
+    font-size: 28px;
+    color: rgba(35, 72, 34, 1);
+}
+
+.content2 p {
+    font-size: 18px;
+    color: #888;
+}
+
+.content-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* CSS - TOP HOME CONTENT */
+.text {
+    flex: 1;
+    padding: 20px;
+    font-family: "Poppins";
+    color: rgba(35, 72, 34, 1);
+}
+
+.text h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.text p {
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+
+.text1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    max-width: 100%;
+    height: 240px;
+    width: 400px;
+    float: right;
+    transition: transform 0.3s;
+}
+
+.image img:hover {
+    transform: scale(1.03);
+}
+
+/* CSS - PRODUK TERBAIK */
+.produk {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.produk-item {
+    width: 250px;
+    margin: 20px;
+    text-align: left;
+}
+
+.produk-item img {
+    max-width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.5);
+    transition: transform 0.3s;
+}
+
+.produk-item img:hover {
+    transform: scale(1.03);
+}
+
+.produk-item h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.produk-item h4 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.produk-item p {
+    font-size: 16px;
+    color: #888;
+}
+
+.produk-terbaik {
+    text-align: left;
+    margin: 20px;
+}
+
+.produk-terbaik h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgba(35, 72, 34, 1);
+    top: 0;
+    left: 0;
+}
+
+.produk-terbaik p {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(30, 30, 30, 0.5);
+}
+
+/* css - ABOUT US */
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
+
+.about {
+    text-align: center;
+    padding: 20px;
+}
+
+.about img {
+    max-width: 40%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.about img:hover {
+    transform: scale(1.03);
+}
+
+.about h2 {
+    font-size: 17px;
+    margin: 10px 0;
+}
+
+.about p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* CSS - ULASAN PELANGGAN */
+.testimonials {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-family: "Poppins";
+    position: relative; 
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow: hidden; 
+    position: relative; 
+}
+
+.testimonial-card {
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(184, 206, 68, 1);
+    max-width: 80%;
+    margin: 0 auto;
+    height: auto;
+    overflow: auto;
+    position: relative; 
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(35, 72, 34, 1);
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+.dots-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+.testimonial-card p {
+    font-size: 16px;
+    color: rgba(35, 72, 34, 1);
+}
+
+.testimonial-card h3 {
+    font-size: 20px; 
+    color: rgba(35, 72, 34, 1);
+    font-weight: 800;
+}
+
+/* CSS - FOOTER & NEWSLETTER */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins";
+}
+
+.footer-atas {
+    background-color: rgba(184, 206, 68, 1);
+    width: 100%;
+    height: auto; 
+    padding: 20px 0; 
+    text-align: center; 
+}
+
+.footer-atas h3 {
+    font-size: 20px; 
+    color: rgba(35, 72, 34, 1);
+}
+
+.footer-atas p {
+    font-size: 14px; 
+    color: rgba(35, 72, 34, 1);
+}
+
+.footer-bawah {
+    background-color: rgba(35, 72, 34, 1);
+    color: rgba(184, 206, 68, 1);
+    font-size: 12px; 
+    text-align: center;
+    width: 100%;
+    height: 30px; 
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px 0; 
+}
+
+.newsletter-input {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.newsletter-button {
+    background-color: #ffffff;
+    color: rgba(35, 72, 34, 1);
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.newsletter-button:hover {
+    transform: scale(1.03);
+}
+
+@media screen and (max-width: 768px) { /* FOR RESPONSIVE */
+    .menu-toggle {
+        display: flex; 
+    }
+
+    .navbar {
+        display: none; 
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0px 5px 5px rgba(128, 128, 128, 0.5);
+        z-index: 1000;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        color: rgba(30, 30, 30, 0.5);
+        text-align: center;
+        padding: 14px 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s, transform 0.3s;
+    }
+
+    .menu-toggle.active + .navbar {
+        display: flex;
+    }
+
+    .header {
+        padding: 10px 20px; 
+    }
+
+    .logo img {
+        margin-left: 5px; 
+    }
+
+    .login-button button {
+        margin-right: 40px; 
+    }
+
+    .content {
+        margin-right: 20px; 
+        margin-left: 20px; 
+        padding-right: 20px; 
+        padding-left: 20px; 
+        margin-top: 50px; 
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image {
+        margin-top: 20px;
+    }
+
+    .text1, .image {
+        flex: initial; 
+        width: 100%; 
+        max-width: none; 
+        text-align: left; 
+    }
+
+    .about-container {
+        flex-direction: column; 
+        gap: 2px; 
+        align-items: center; 
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .about {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about img {
+        max-width: 80%; 
+    }
+
+    .testimonial-card {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 14px;
+    }
+
+    .arrow {
+        font-size: 18px;
+    }
+
+    .dots-container {
+        margin-top: 10px;
+    }
+    .prev {
+        left: 5px;
+    }
+
+    .next {
+        right: 5px;
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-atas {
+        max-width: 100%; 
+    }
+    .newsletter-input {
+        width: 100%; 
+        max-width: 300px; 
+        padding: 8px;
+        font-size: 14px; 
+    }
+
+    .newsletter-button {
+        padding: 8px 16px; 
+        font-size: 14px; 
+    }
+
+    .testimonial-card p  {
+        text-align: center;
+    }
+    .testimonial-card h3  {
+        text-align: center;
+    }
+}
