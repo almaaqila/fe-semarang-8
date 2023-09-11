@@ -138,6 +138,10 @@ content .kotak {
   transform: scale(1.05);
 }
 
+hr {
+  border: 1px solid rgba(35, 72, 34, 1);
+}
+
 /* CSS - FOOTER & NEWSLETTER */
 footer {
   display: flex;

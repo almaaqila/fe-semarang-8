@@ -25,7 +25,7 @@
     <nav class="navbar">
         <a href="home.html">Home</a>
         <a href="product.html">Products</a>
-        <a href="#">Order</a>
+        <a href="order.html">Order</a>
     </nav>
 
         <!-- LOGIN BUTTON -->
@@ -35,65 +35,117 @@
             </a>
         </div>
     </header>
-<!-- FOOTER -->
-<footer>
-    <div class="footer-atas">
-        <div>
-            <h3>Menjadi Bagian Newsletter Kami</h3>
-            <p>Daftar dan jadilah yang pertama 
-                <br>mengetahui tentang produk baru, 
-                <br> promosi, dan banyak lagi.
-            </p>
+
+    <!-- CONTENT -->
+    <section class="content">    
+        <div class="text">
+            <h1>Form Pemesanan</h1>
+        </div>       
+    </section>
+
+    <!-- FORM -->
+    <form method="post">
+        <div class="row">
+            <div class="col-70">
+                <div class="container-biodata">
+                    <div class="row">
+                        <div class="col-70"><br>
+                            <label class="required" for="nama">Nama Lengkap</label> 
+                            <input type="text" name="nama" id="nama" placeholder="Alma Aqila Hansa"
+                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <label class="required" for="alamat">Alamat</label> 
+                            <input type="text" name="alamat" id="alamat" placeholder="Jalan Bahana 2"
+                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <label class="required" for="notelp">Nomor Telepon</label> 
+                            <input type="text" name="notelp" id="notelp" placeholder="0812112233"
+                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <label class="required" for="email">Email</label> 
+                            <input type="text" name="email" id="email" placeholder="alma@example.com"
+                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                
+                            <div class="row">
+                                <div class="col-50">
+                                    <label class="required" for="provinsi">Provinsi</label> 
+                                    <input type="text" name="provinsi" id="provinsi" placeholder="Jawa Barat"
+                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                </div>
+                                <div class="col-50">
+                                    <label class="required" for="kota">Kota/Kabupaten</label> 
+                                    <input type="text" name="kota" id="kota" placeholder="Depok"
+                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                </div>
+                            <div class="col-50">
+                                <label class="required" for="kecamatan">Kecamatan</label> 
+                                <input type="text" name="kecamatan" id="kecamatan" placeholder="Beji"
+                                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                        </div>
+                            <div class="col-50">
+                                <label class="required" for="kpos">Kode Pos</label> 
+                                <input type="text" name="kpos" id="kpos" placeholder="10001"
+                                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Masukkan email Anda" required>
-            <button type="submit" class="newsletter-button">Kirim</button>
-        </form>
-    </div>
-    <div class="footer-bawah">
-        <p>2023 all Right Reserved Term of use Pasar Segar</p>
-    </div>
-</footer>
-<script>
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    const dots = document.querySelectorAll('.dot');
+        <div class="col-30">
+            <div class="container">
+                <h4 class="required">Produk</h4> 
+                <input type="text" name="produk" id="produk" placeholder="Apel"
+                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                <div class="row">
+                    <div class="col-30">
+                        <label class="required" for="jumlah">Jumlah</label> 
+                        <input type="text" name="jumlah" id="kota" placeholder="100"
+                        required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                    </div>
+                    <div class="col-30">
+                          <label class="required" for="satuan">Satuan</label>
+                        <select id="satuan" name="satuan" form="satuanform">
+                            <option value="kg">kg</option>
+                            <option value="gr">gr</option>
+                            <option value="pcs">pcs</option>
+                        </select>
+                    </div>
+                </div>
+            </div> <br><br>
+            <div class="container">
+                <h3>INFO</h3>
+                <hr>
+                <p>Detail pembayaran berupa total yang dibayarkan dan rekening tujuan akan dikirim oleh Admin Pasar Segar melalui Whatsapp.
+                </p>    
+            </div>
+        
+        </div>
+        <input type="submit" value="Buat pesanan" class="btn">
+    </form>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-atas">
+            <div>
+                <h3>Menjadi Bagian Newsletter Kami</h3>
+                <p>Daftar dan jadilah yang pertama 
+                    <br>mengetahui tentang produk baru, 
+                    <br> promosi, dan banyak lagi.
+                </p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Masukkan email Anda" required>
+                <button type="submit" class="newsletter-button">Kirim</button>
+            </form>
+        </div>
+        <div class="footer-bawah">
+            <p>2023 all Right Reserved Term of use Pasar Segar</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
 
-    function showTestimonial(index) {
-        testimonials.forEach((testimonial, idx) => {
-            if (idx === index) {
-                testimonial.style.display = 'block';
-                dots[idx].classList.add('active');
-            } else {
-                testimonial.style.display = 'none';
-                dots[idx].classList.remove('active');
-            }
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
         });
-        currentTestimonial = index;
-    }
-
-    function prevTestimonial() {
-        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-        showTestimonial(currentTestimonial);
-    }
-
-    function nextTestimonial() {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-    }
-
-    function autoChangeTestimonial() {
-        nextTestimonial();
-    }
-
-    setInterval(autoChangeTestimonial, 6000);
-    showTestimonial(currentTestimonial);
-
-    const menuToggle = document.querySelector('.menu-toggle');
-
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-    });
-</script>
+    </script>
 </body>
 </html>

@@ -23,6 +23,11 @@ body {
     display: flex;
     flex-direction: column; 
     min-height: 100vh; 
+    background-color: #fcf8f8;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* CSS - LOGO DAN NAVBAR*/
@@ -55,7 +60,6 @@ body {
 .navbar {
     align-items: center;
 }
-
 
 .navbar a {
     float: left;
@@ -93,6 +97,104 @@ body {
     transform: scale(1.05);
 }
 
+/* CSS - CONTENT*/
+.content {
+    background-color: rgba(184, 206, 68, 1);
+    border-radius: 10px;
+    margin: 130px 20px 30px;
+    padding: 10px;
+    text-align: center;
+    color: black;
+}
+
+/* CSS - FORM */
+.required:after {
+    content:" *";
+    color: red;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-30 {
+    -ms-flex: 30%; 
+    flex: 30%;
+}
+
+.col-50 {
+    -ms-flex: 50%; 
+    flex: 50%;
+}
+
+.col-70 {
+    -ms-flex: 70%; 
+    flex: 70%;
+}
+
+.col-30,
+.col-50,
+.col-70 {
+    padding: 0 16px;
+}
+
+.container-biodata{
+    background-color: rgba(184, 206, 68, 1);
+    padding: 5px 20px 15px 20px;
+    border: 2px solid rgba(35, 72, 34, 1);
+    border-radius: 3px;
+    margin-left: 75px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.container{
+    background-color: rgba(184, 206, 68, 1);
+    padding: 5px 20px 15px 20px;
+    border: 2px solid rgba(35, 72, 34, 1);
+    border-radius: 3px;
+    margin-right: 75px;
+    margin-left: 20px;
+
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    width: 75%;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: rgba(184, 206, 68, 1);
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;    
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+hr {
+    border: 1px solid rgba(35, 72, 34, 1);
+}
+  
 /* CSS - FOOTER & NEWSLETTER */
 footer {
     display: flex;
@@ -100,6 +202,7 @@ footer {
     align-items: center;
     font-family: "Poppins";
     margin-top: auto;
+    width: 100%;
 }
 
 .footer-atas {
@@ -204,6 +307,24 @@ footer {
         margin-right: 40px; 
     }
 
+    .content {
+        margin: 95px 10px 30px;
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .container-biodata,
+    .container {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .col-30 {
+        margin-bottom: 20px;
+    }
+
     .footer-content {
         flex-direction: column;
     }
@@ -211,6 +332,7 @@ footer {
     .footer-atas {
         max-width: 100%; 
     }
+
     .newsletter-input {
         width: 100%; 
         max-width: 300px; 
