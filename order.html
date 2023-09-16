@@ -44,44 +44,47 @@
     </section>
 
     <!-- FORM -->
-    <form method="post">
+    <form class="order-form" onsubmit="return confirmSubmit();">
         <div class="row">
             <div class="col-70">
                 <div class="container-biodata">
                     <div class="row">
                         <div class="col-70"><br>
                             <label class="required" for="nama">Nama Lengkap</label> 
-                            <input type="text" name="nama" id="nama" placeholder="Alma Aqila Hansa"
+                            <input type="text" name="nama" id="form-nama" placeholder="Alma Aqila Hansa"
                             required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+
                             <label class="required" for="alamat">Alamat</label> 
-                            <input type="text" name="alamat" id="alamat" placeholder="Jalan Bahana 2"
+                            <input type="text" name="alamat" id="form-alamat" placeholder="Jalan Bahana 2"
                             required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+
                             <label class="required" for="notelp">Nomor Telepon</label> 
-                            <input type="text" name="notelp" id="notelp" placeholder="0812112233"
+                            <input type="text" name="notelp" id="form-notelp" placeholder="0812112233"
                             required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+
                             <label class="required" for="email">Email</label> 
-                            <input type="text" name="email" id="email" placeholder="alma@example.com"
+                            <input type="text" name="email" id="form-email" placeholder="alma@example.com"
                             required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
                 
                             <div class="row">
                                 <div class="col-50">
                                     <label class="required" for="provinsi">Provinsi</label> 
-                                    <input type="text" name="provinsi" id="provinsi" placeholder="Jawa Barat"
-                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                    <input type="text" name="provinsi" id="form-prov" placeholder="Jawa Barat"
+                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">       
                                 </div>
                                 <div class="col-50">
                                     <label class="required" for="kota">Kota/Kabupaten</label> 
-                                    <input type="text" name="kota" id="kota" placeholder="Depok"
-                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                    <input type="text" name="kota" id="form-kota" placeholder="Depok"
+                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">       
                                 </div>
                             <div class="col-50">
                                 <label class="required" for="kecamatan">Kecamatan</label> 
-                                <input type="text" name="kecamatan" id="kecamatan" placeholder="Beji"
+                                <input type="text" name="kecamatan" id="form-kecamatan" placeholder="Beji"
                                 required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
-                        </div>
+                            </div>
                             <div class="col-50">
                                 <label class="required" for="kpos">Kode Pos</label> 
-                                <input type="text" name="kpos" id="kpos" placeholder="10001"
+                                <input type="text" name="kpos" id="form-kpos" placeholder="10001"
                                 required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
                             </div>
                         </div>
@@ -92,12 +95,11 @@
         <div class="col-30">
             <div class="container">
                 <h4 class="required">Produk</h4> 
-                <input type="text" name="produk" id="produk" placeholder="Apel"
-                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                <input type="text" name="produk" id="produk" readonly>        
                 <div class="row">
                     <div class="col-30">
                         <label class="required" for="jumlah">Jumlah</label> 
-                        <input type="text" name="jumlah" id="kota" placeholder="100"
+                        <input type="text" name="jumlah" id="form-jumlah" placeholder="100"
                         required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
                     </div>
                     <div class="col-30">
@@ -118,7 +120,7 @@
             </div>
         
         </div>
-        <input type="submit" value="Buat pesanan" class="btn">
+        <button class="btn" type="submit">Buat Pesanan</button>
     </form>
     
     <!-- FOOTER -->
@@ -141,8 +143,51 @@
         </div>
     </footer>
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
+        //mendefinisikan function untuk mengambil value dari parameter di URL
+        function getQueryParameter(param) { 
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        //untuk mengambil value dari parameter produk di URL dan disimpan di const
+        const produkValue = getQueryParameter('produk');
 
+        //define const input dari ID produk
+        const produkInput = document.getElementById('produk');
+
+        if (window.location.pathname.endsWith('order.html')) {
+            // Jika value query 'produk' ada, set menjadi value input 
+            if (produkValue) {
+                produkInput.value = produkValue;
+            } 
+            // Jika value 'produk' tidak ada, menjadi dapat input
+            else {
+                produkInput.removeAttribute('readonly');
+            }
+        }
+        
+        function confirmSubmit() {
+            // Membuat const untuk menampilkan pesan konfirmasi
+            const confirmation = confirm("Apakah Anda yakin untuk menyimpan formulir ini?");
+            
+            //Jika klik 'OK'
+            if (confirmation) {
+                // Select semua input element di order-form dan reset
+                const submitform = document.querySelector(".order-form");                
+                submitform.reset();
+
+                // Pesan telah berhasil mengirim form
+                alert("Terima kasih telah membeli dari Pasar Segar");
+
+                return true; // melakukan submit form
+
+            } else {
+                //Jika klik 'cancel', return false untuk tidak submit form
+                return false;
+            }
+        }
+
+        const menuToggle = document.querySelector('.menu-toggle');
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
         });
