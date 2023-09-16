@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order</title>
-    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="css/order.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">    
 </head>
 <body>
@@ -95,7 +95,7 @@
         <div class="col-30">
             <div class="container">
                 <h4 class="required">Produk</h4> 
-                <input type="text" name="produk" id="produk" readonly>        
+                <input type="text" name="produk" id="produk" placeholder="Apel" readonly>        
                 <div class="row">
                     <div class="col-30">
                         <label class="required" for="jumlah">Jumlah</label> 
@@ -142,55 +142,8 @@
             <p>2023 all Right Reserved Term of use Pasar Segar</p>
         </div>
     </footer>
-    <script>
-        //mendefinisikan function untuk mengambil value dari parameter di URL
-        function getQueryParameter(param) { 
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-        
-        //untuk mengambil value dari parameter produk di URL dan disimpan di const
-        const produkValue = getQueryParameter('produk');
+    <script src="js/order.js"></script>
+    <script src="js/navbar.js"></script>
 
-        //define const input dari ID produk
-        const produkInput = document.getElementById('produk');
-
-        if (window.location.pathname.endsWith('order.html')) {
-            // Jika value query 'produk' ada, set menjadi value input 
-            if (produkValue) {
-                produkInput.value = produkValue;
-            } 
-            // Jika value 'produk' tidak ada, menjadi dapat input
-            else {
-                produkInput.removeAttribute('readonly');
-            }
-        }
-        
-        function confirmSubmit() {
-            // Membuat const untuk menampilkan pesan konfirmasi
-            const confirmation = confirm("Apakah Anda yakin untuk menyimpan formulir ini?");
-            
-            //Jika klik 'OK'
-            if (confirmation) {
-                // Select semua input element di order-form dan reset
-                const submitform = document.querySelector(".order-form");                
-                submitform.reset();
-
-                // Pesan telah berhasil mengirim form
-                alert("Terima kasih telah membeli dari Pasar Segar");
-
-                return true; // melakukan submit form
-
-            } else {
-                //Jika klik 'cancel', return false untuk tidak submit form
-                return false;
-            }
-        }
-
-        const menuToggle = document.querySelector('.menu-toggle');
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>

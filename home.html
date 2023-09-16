@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasar Segar</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">    
 </head>
 <body>
@@ -189,46 +189,7 @@
             <p>2023 all Right Reserved Term of use Pasar Segar</p>
         </div>
     </footer>
-    <script>
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const dots = document.querySelectorAll('.dot');
-
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, idx) => {
-                if (idx === index) {
-                    testimonial.style.display = 'block';
-                    dots[idx].classList.add('active');
-                } else {
-                    testimonial.style.display = 'none';
-                    dots[idx].classList.remove('active');
-                }
-            });
-            currentTestimonial = index;
-        }
-
-        function prevTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-
-        function autoChangeTestimonial() {
-            nextTestimonial();
-        }
-
-        setInterval(autoChangeTestimonial, 6000);
-        showTestimonial(currentTestimonial);
-
-        const menuToggle = document.querySelector('.menu-toggle');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-        });
-    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
