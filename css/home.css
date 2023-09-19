@@ -176,6 +176,7 @@ body {
     height: 240px;
     width: 400px;
     float: right;
+    border-radius: 10px;
     transition: transform 0.3s;
 }
 
