@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">    
 </head>
 <body>
-    <!-- LOGO DI HEADER -->
    <header class="header">
-        
-        <div class="header-container"></div> 
-           <div class="logo">
-               <img id="animated-logo" src="https://cdn.discordapp.com/attachments/1148957853219033161/1148959864270364702/Group_16.png"  
-               alt="Logo">
-           </div>
+        <!-- LOGO DI HEADER -->
+        <div class="logo">
+            <img id="animated-logo" src="https://cdn.discordapp.com/attachments/1148957853219033161/1148959864270364702/Group_16.png"  
+            alt="Logo">
+        </div>
            
        <!-- MENU TOGGLE -->
        <div class="menu-toggle">
@@ -30,14 +28,6 @@
                <a href="product.html">Products</a>
                <a href="order.html">Order</a>
            </nav>  
-   
-       <!-- LOGIN BUTTON -->
-           <div class="login-button">
-            
-           </div>
-   
-       
-        </div>
        </header>
 
     <!-- CONTENT -->
@@ -48,48 +38,40 @@
     </section>
 
     <!-- FORM -->
-    <form class="order-form" onsubmit="return confirmSubmit();">
+    <form class="order-form" onsubmit="return submitForm();">
         <div class="row">
             <div class="col-70">
                 <div class="container-biodata">
                     <div class="row">
                         <div class="col-70"><br>
                             <label class="required" for="nama">Nama Lengkap</label> 
-                            <input type="text" name="nama" id="form-nama" placeholder="Alma Aqila Hansa"
-                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <input type="text" name="nama" id="form-nama" placeholder="Alma Aqila Hansa" required>
 
                             <label class="required" for="alamat">Alamat</label> 
-                            <input type="text" name="alamat" id="form-alamat" placeholder="Jalan Bahana 2"
-                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <input type="text" name="alamat" id="form-alamat" placeholder="Jalan Bahana 2" required>
 
                             <label class="required" for="notelp">Nomor Telepon</label> 
-                            <input type="text" name="notelp" id="form-notelp" placeholder="0812112233"
-                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
+                            <input type="text" name="notelp" id="form-notelp" placeholder="0812112233" required>
 
                             <label class="required" for="email">Email</label> 
-                            <input type="text" name="email" id="form-email" placeholder="alma@example.com"
-                            required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">
-                
+                            <input type="email" name="email" id="form-email" placeholder="alma@example.com" required>
+
                             <div class="row">
                                 <div class="col-50">
                                     <label class="required" for="provinsi">Provinsi</label> 
-                                    <input type="text" name="provinsi" id="form-prov" placeholder="Jawa Barat"
-                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">       
+                                    <input type="text" name="provinsi" id="form-prov" placeholder="Jawa Barat" required>       
                                 </div>
                                 <div class="col-50">
                                     <label class="required" for="kota">Kota/Kabupaten</label> 
-                                    <input type="text" name="kota" id="form-kota" placeholder="Depok"
-                                    required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">       
+                                    <input type="text" name="kota" id="form-kota" placeholder="Depok" required>       
                                 </div>
                             <div class="col-50">
                                 <label class="required" for="kecamatan">Kecamatan</label> 
-                                <input type="text" name="kecamatan" id="form-kecamatan" placeholder="Beji"
-                                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                <input type="text" name="kecamatan" id="form-kecamatan" placeholder="Beji" required>        
                             </div>
                             <div class="col-50">
                                 <label class="required" for="kpos">Kode Pos</label> 
-                                <input type="text" name="kpos" id="form-kpos" placeholder="10001"
-                                required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                                <input type="text" name="kpos" id="form-kpos" placeholder="10001" required>        
                             </div>
                         </div>
                     </div>
@@ -99,18 +81,18 @@
         <div class="col-30">
             <div class="container">
                 <h4 class="required">Produk</h4> 
-                <input type="text" name="produk" id="produk" placeholder="Apel" readonly>        
+                <input type="text" name="produk" id="produk" placeholder="Apel" readonly required>        
                 <div class="row">
                     <div class="col-30">
                         <label class="required" for="jumlah">Jumlah</label> 
-                        <input type="text" name="jumlah" id="form-jumlah" placeholder="100"
-                        required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')">        
+                        <input type="text" name="jumlah" id="form-jumlah" placeholder="100" required>        
                     </div>
                     <div class="col-30">
-                          <label class="required" for="satuan">Satuan</label>
-                        <select id="satuan" name="satuan" form="satuanform">
+                        <label class="required" for="satuan">Satuan</label>
+                        <select id="satuan" name="satuan" form="satuanform" required>
+                            <option value="" disabled selected>Pilih</option>
                             <option value="kg">kg</option>
-                            <option value="gr">gr</option>
+                           <option value="gr">gr</option>
                             <option value="pcs">pcs</option>
                         </select>
                     </div>
