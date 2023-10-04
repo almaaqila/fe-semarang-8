@@ -127,6 +127,7 @@ content .pesan {
 }
 content .list {
   display: flex;
+  flex-wrap: wrap;
 }
 content .card {
   padding-left: 100px;
@@ -279,9 +280,11 @@ footer {
   }
   content .card {
     padding-left: 0;
+    
   }
   content .list div {
     text-align: center; 
+    margin-bottom: 20px;
   }
   content .gambar {
     width: 60%; 
