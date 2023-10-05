@@ -82,7 +82,7 @@ body {
 }
 
 .login-button button {
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     color: rgba(35, 72, 34, 1);
     border: none;
     padding: 10px 20px;
@@ -95,13 +95,13 @@ body {
 
 .login-button button:hover {
     background-color: rgba(35, 72, 34, 1);
-    color: rgba(184, 206, 68, 1);
+    color: #9FCC4B ;
     transform: scale(1.05);
 }
 
 /* CSS - CONTENT*/
 .content {
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     border-radius: 10px;
     margin: 130px 20px 30px;
     padding: 10px;
@@ -145,7 +145,7 @@ body {
 }
 
 .container-biodata{
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     padding: 5px 20px 15px 20px;
     border: 2px solid rgba(35, 72, 34, 1);
     border-radius: 3px;
@@ -155,7 +155,7 @@ body {
 }
 
 .container{
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     padding: 5px 20px 15px 20px;
     border: 2px solid rgba(35, 72, 34, 1);
     border-radius: 3px;
@@ -204,7 +204,7 @@ select option:checked {
     width: 75%;
     cursor: pointer;
     font-size: 17px;
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     margin: 30px auto;
     border: 1px solid #ccc;
     border-radius: 10px;    
@@ -229,7 +229,7 @@ footer {
 }
 
 .footer-atas {
-    background-color: rgba(184, 206, 68, 1);
+    background-color: #9FCC4B ;
     width: 100%;
     height: auto; 
     padding: 20px 0; 
@@ -248,7 +248,7 @@ footer {
 
 .footer-bawah {
     background-color: rgba(35, 72, 34, 1);
-    color: rgba(184, 206, 68, 1);
+    color: #9FCC4B ;
     font-size: 12px; 
     text-align: center;
     width: 100%;

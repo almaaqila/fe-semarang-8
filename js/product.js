@@ -27,7 +27,6 @@ async function getProducts() {
         }
 
     }
-    console.log(restJSON);
 }
 
 getProducts();
