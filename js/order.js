@@ -65,27 +65,36 @@ function removeLastProductRow() {
         }
     }
 }
+
 // Function to populate the "produk" dropdown
 async function populateProductDropdown(dropdown) {
-   
-    const res = await fetch('https://be-semarang-8-production.up.railway.app/api/products');
-    const restJSON = await res.json();
+    try {
+        const res = await fetch('https://be-semarang-8-production.up.railway.app/api/products');
 
-    if (restJSON.success) {
-        const productList = resJSON.data;
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
 
-        // Loop through the products and create an option element for each
-        productList.forEach((product) => {
-            const option = document.createElement('option');
-            option.value = product.name; // Assuming 'name' is the product name in your database
-            option.textContent = product.name; // Display the product name
-            dropdown.appendChild(option);
-        });
+        const resJSON = await res.json();
 
-        // Call the function to set the dropdown value after it's populated
-        setProductDropdownValue();
+        if (resJSON.success) {
+            const productList = resJSON.data;
+
+            // Loop through the products and create an option element for each
+            productList.forEach((product) => {
+                const option = document.createElement('option');
+                option.value = product.name; // Assuming 'name' is the product name in your database
+                option.textContent = product.name; // Display the product name
+                dropdown.appendChild(option);
+            });
+
+            // Call the function to set the dropdown value after it's populated
+            setProductDropdownValue();
+        }
+    } catch (error) {
+        console.error(error);
+        // Handle the error appropriately (e.g., show an error message to the user)
     }
-
 }
 
 // Function to get the query parameter
