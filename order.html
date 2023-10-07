@@ -38,7 +38,7 @@
     </section>
 
     <!-- FORM -->
-    <form class="order-form" onsubmit="return submitForm();">
+    <form class="order-form" method="post">
         <div class="row">
             <div class="col-70">
                 <div class="container-biodata">
@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-30">
                             <label class="required" for="satuan">Satuan</label>
-                            <select id="satuan" name="satuan" form="satuanform" required>
+                            <select name="satuan" id="satuanId" required>
                                 <option value="" disabled selected>Pilih</option>
                                 <option value="kg">kg</option>
                             <option value="gr">gr</option>
@@ -103,6 +103,7 @@
                 </div>
                 <hr>
                 <div class="product-rows">
+                    <!-- Rows for ordering multiple products will be dynamically added here -->
                 </div>   
                 <div class="btn-container">
                     <button type="button" class="btn-add" onclick="addProductRow()">Tambah</button>

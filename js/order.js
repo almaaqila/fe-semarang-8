@@ -1,14 +1,14 @@
-let productRowCount = 0; // Initialize with one row for the first product
+let productRowCount = 0; 
 
-// Function to add a new product row
+// Fungsi untuk menambah row produk
 function addProductRow() {
     const productRows = document.querySelector(".product-rows");
 
-    // Create a new row
+    // Membuat row baru
     const newRow = document.createElement("div");
     newRow.classList.add("product-row");
 
-    // Add fields for the new product
+    // menambahkan field untuk mengisi produk lebih dari 1
     newRow.innerHTML = `
     <label class="required" for="produk">Produk</label> 
     <select name="produk" class="produk-dropdown" required>
@@ -21,7 +21,7 @@ function addProductRow() {
         </div>
         <div class="col-30">
         <label class="required" for="satuan">Satuan</label>
-            <select name="satuan" form="satuanform" required>
+            <select name="satuan" id="satuanId" required>
                 <option value="" disabled selected>Pilih</option>
                 <option value="kg">kg</option>
                 <option value="gr">gr</option>
@@ -30,23 +30,23 @@ function addProductRow() {
         </div>
     </div><hr>`;
 
-    // Append the new row to the container
+    // Append row baru ke container
     productRows.appendChild(newRow);
 
-    // Populate the dropdown options for the new product row
-    populateProductDropdown(newRow.querySelector(".produk-dropdown"));
+    // Mengambil dropdown product untuk di row baru 
+    getProductDropdown(newRow.querySelector(".produk-dropdown"));
 
-    // Increment the product row count
+    // Menambahkan hitungan row
     productRowCount++;
 
-    
+    //Jika row nya lebih dari satu menampilkan remove button
     const removeButton = document.querySelector(".btn-remove");
     if (productRowCount > 0) {
         removeButton.style.display = "inline-block";
     }
 }
 
-// Function to remove a product row
+// fungsi untuk menghapus row produk
 function removeLastProductRow() {
     const productRows = document.querySelector(".product-rows");
     const rows = productRows.querySelectorAll(".product-row");
@@ -55,21 +55,21 @@ function removeLastProductRow() {
         const lastRow = rows[rows.length - 1];
         lastRow.remove();
 
-        // Decrement the product row count
+        // Mengurangi hitungan jumlah row
         productRowCount--;
 
-        // Disable the "Hapus Produk" button when there are no rows left
+        // kalau tidak ada row produk baru remove button hilang
         const removeButton = document.querySelector(".btn-remove");
         if (productRowCount === 0) {
             removeButton.style.display = "none";
         }
     }
 }
-
-// Function to populate the "produk" dropdown
-async function populateProductDropdown(dropdown) {
+// fungsi untuk mengambil data produk untuk dropdown
+async function getProductDropdown(dropdown) {
     try {
-        const res = await fetch('https://be-semarang-8-production.up.railway.app/api/products');
+        // const res = await fetch('https://be-semarang-8-production.up.railway.app/api/products');
+        const res = await fetch('http://localhost:3000/api/products'); //fetch data
 
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
@@ -80,44 +80,87 @@ async function populateProductDropdown(dropdown) {
         if (resJSON.success) {
             const productList = resJSON.data;
 
-            // Loop through the products and create an option element for each
+            // Looping produk untuk membuat option untuk masing-masing
             productList.forEach((product) => {
                 const option = document.createElement('option');
-                option.value = product.name; // Assuming 'name' is the product name in your database
-                option.textContent = product.name; // Display the product name
+                option.value = product.name; 
+                option.textContent = product.name; 
                 dropdown.appendChild(option);
             });
 
-            // Call the function to set the dropdown value after it's populated
+            //memanggil fungsi setProductDropdownValue
             setProductDropdownValue();
         }
     } catch (error) {
         console.error(error);
-        // Handle the error appropriately (e.g., show an error message to the user)
     }
 }
 
-// Function to get the query parameter
+//mendefinisikan function untuk mengambil value dari parameter di URL
 function getQueryParameter(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-// Function to set the "produk" dropdown based on the query parameter or user input
+// fungsi untuk menentukan value dropdown dari parameter URL
 function setProductDropdownValue() {
     const produkDropdown = document.getElementById('produkDropdown');
+
+    //untuk mengambil value dari parameter produk di URL dan disimpan di const
     const produkValue = getQueryParameter('produk');
 
-    // If the query parameter exists, set the dropdown value to it
+    // Jika value query 'produk' ada, set menjadi value dropdown 
     if (produkValue) {
         produkDropdown.value = produkValue;
     }
 }
 
-// Call the functions to populate the dropdown and set the default value
+//memanggil fungsi untuk getProductDropdown
 document.addEventListener('DOMContentLoaded', function () {
-    populateProductDropdown(document.querySelector(".produk-dropdown"));
+    getProductDropdown(document.querySelector(".produk-dropdown"));
 });
+
+// fungsi untuk data produk ketika melakukan order 
+function collectProductInfo() {
+    const productRows = document.querySelectorAll('.product-row');
+    const firstProduct = document.querySelector('.first-product');
+
+    //const array untuk menyimpan info produk
+    const productInfo = [];
+
+    //mengambil data dari produk pertama (yang bukan di-row tambahan)
+    if (firstProduct) {
+        const firstProductName = firstProduct.querySelector('.produk-dropdown');
+        const firstProductQuantity = firstProduct.querySelector('#form-jumlah');
+        const firstProductSatuan = firstProduct.querySelector('select[name="satuan"]');
+        
+        if (firstProductName && firstProductQuantity && firstProductSatuan) {
+            const productName = firstProductName.value;
+            const quantity = firstProductQuantity.value;
+            const satuan = firstProductSatuan.value;
+
+            productInfo.push({ productName, quantity, satuan });
+        }
+    }
+
+    // mengambil data dari product rows
+    productRows.forEach((row) => {
+        const productNameElement = row.querySelector('.produk-dropdown');
+        const quantityElement = row.querySelector('#form-jumlah');
+        const satuanElement = row.querySelector('select[name="satuan"]');
+        
+        if (productNameElement && quantityElement && satuanElement) {
+            const productName = productNameElement.value; 
+            const quantity = quantityElement.value;
+            const satuan = satuanElement.value;
+
+            productInfo.push({ productName, quantity, satuan });
+        }
+    });
+
+    return productInfo;
+}
+
 
 // Mendefinisikan function untuk menampilkan pesan konfirmasi ketika submit
 function confirmationForm() {
@@ -139,28 +182,14 @@ function confirmationForm() {
     }
 }
 
-function submitForm() {
-    // Membuat const untuk input yang memiliki atribut "required"
-    const inputFields = document.querySelectorAll('input[required]');
+// Mendefinisikan function untuk submit form
+async function submitForm(event) {
+    event.preventDefault();
+
+    console.log("Sending POST request to the backend...");
+
     // Membuat const untuk select input
-    const satuanSelect = document.getElementById("satuan");
-
-    let isValid = true; // Flag to track overall form validity
-
-    // Loop through input fields
-    inputFields.forEach((input) => {
-        input.addEventListener('input', function () {
-            this.setCustomValidity(''); // Reset pesan validasinya
-        });
-
-        // Menampilkan pesan validasi secara langsung
-        input.reportValidity();
-
-        // Check if the input is empty
-        if (input.value === '') {
-            isValid = false; // Set the flag to false if any input is empty
-        }
-    });
+    const satuanSelect = document.getElementById("satuanId");
 
     // Menambahkan event listener untuk select element
     satuanSelect.addEventListener('change', function () {
@@ -170,12 +199,68 @@ function submitForm() {
     if (satuanSelect.value === "") { // Jika belum memilih satuan
         satuanSelect.setCustomValidity('Please select an item in the list.'); // Pesan custom untuk select yang belum dipilih
         satuanSelect.reportValidity(); // Menampilkan pesan validasi secara langsung
-        isValid = false; // Set the flag to false if satuan is not selected
+        return false; // Prevent form submission
     }
 
-    if (!isValid) {
-        return false; // Mencegah submit form if any field is empty or invalid
+    if (confirmationForm()) { //jika memilih konfirmasi
+        // mengumpulkan data order
+        const nama = document.getElementById("form-nama").value;
+        const alamat = document.getElementById("form-alamat").value;
+        const notelp = document.getElementById("form-notelp").value;
+        const email = document.getElementById("form-email").value;
+        const provinsi = document.getElementById("form-prov").value;
+        const kota = document.getElementById("form-kota").value;
+        const kecamatan = document.getElementById("form-kecamatan").value;
+        const kpos = document.getElementById("form-kpos").value;
+        const productInfo = collectProductInfo();
+
+        // disimpan di order data
+        const orderData = {
+            nama,
+            alamat,
+            notelp,
+            email,
+            provinsi,
+            kota,
+            kecamatan,
+            kpos,
+            products: productInfo,
+        };
+
+        try {
+            // membuat POST request orderData ke backend API
+            const response = await fetch('http://localhost:3000/api/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            console.log("POST request completed.");
+
+            const responseData = await response.json();
+
+            if (responseData.success) {
+                // Jika order berhasil
+                alert("Terima kasih telah membeli dari Pasar Segar");
+                location.reload(); 
+            } else {
+                alert("Gagal melakukan pemesanan. Silakan coba lagi.");
+                location.reload();
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Gagal melakukan pemesanan. Silakan coba lagi.");
+            location.reload();
+        }
     } else {
-        return confirmationForm(); // Memanggil fungsi konfirmasi submit form 
+        return false; // Jika belum konfirmasi, false submit form
     }
 }
+
+const orderForm = document.querySelector(".order-form");
+orderForm.addEventListener("submit", function (event) {
+    console.log("Form submit button clicked.");
+    submitForm(event);
+});
